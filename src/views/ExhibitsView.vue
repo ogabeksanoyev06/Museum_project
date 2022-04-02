@@ -115,13 +115,10 @@ export default {
 			this.outerVisible = true;
 		},
 		getExhibits() {
-			axios
-				.get('https://jsonplaceholder.typicode.com/posts/1/comments')
-				.then(res => {
-					this.exhibits = res.data;
-					console.log(res);
-					console.log(this.exhibits);
-				});
+			axios.get('https://jsonplaceholder.typicode.com/posts/1/comments').then(res => {
+				this.exhibits = res.data;
+				console.log(this.exhibits);
+			});
 		},
 	},
 };
@@ -148,7 +145,7 @@ export default {
 	display: flex;
 	flex-direction: column;
 	min-width: 0;
-	background-color: #fff;
+	background-color: #fff; 
 }
 .card-img-top {
 	flex-shrink: 0;

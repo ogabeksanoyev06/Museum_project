@@ -4,7 +4,7 @@
 		<div
 			class="d-flex container align-items-center justify-content-center justify-content-md-between flex-wrap"
 		>
-			<ul class="d-flex align-items-center header_t my-3 me-3">
+			<ul class="d-flex align-items-center header_t my-1 me-3">
 				<li>
 					<a href="#"><img src="../assets/Vector.png" alt="telegram" /></a>
 				</li>
@@ -30,7 +30,7 @@
 		<!-- logoo header -->
 		<div
 			style="cursor: pointer"
-			class="d-none d-md-flex align-items-center justify-content-center"
+			class="mb-5 d-none d-md-flex align-items-center justify-content-center"
 			@click="goTo('home')"
 		>
 			<img src="../assets/logo.png" alt="logo" class="me-2" />
@@ -238,13 +238,39 @@ export default {
 	align-items: center;
 	justify-content: center;
 	font-size: 17px;
+	padding: 5px 10px;
+	border-radius: 5px;
 	font-weight: 600;
 	color: #95abc6;
 	letter-spacing: 1.2px;
+	border: 1px solid #1989fa;
+}
+.header_items ul li a::after {
+	background-color: #1989fa;
+}
+.header_items ul li a::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	border-radius: 0.25rem;
+	transition: transform 0.5s;
+	transition-timing-function: ease;
+	transform-origin: 0 0;
+	transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+	transform: scaleX(0);
+}
+.header_items ul li a:hover::after {
+	transform: scaleX(1);
+	z-index: -1;
 }
 .header_items ul li a:hover {
-	color: #1989fa;
+	color: #fff;
 }
+
 .header_items ul li a:hover::before {
 	position: absolute;
 	content: '';
@@ -257,7 +283,9 @@ export default {
 	background-color: #1989fa;
 }
 .activeClass a {
-	color: #1989fa !important;
+	color: #fff !important;
+	background-color: #1989fa;
+	z-index: 2;
 	opacity: 1 !important;
 }
 .activeClass a::before {
@@ -287,7 +315,6 @@ export default {
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		overflow: scroll;
 		background: linear-gradient(279.37deg, #008ae4, #a6dcff 158.68%);
 		box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.08);
 		width: 320px;
@@ -297,14 +324,19 @@ export default {
 	}
 	.header_items ul li {
 		min-width: 200px;
-		background-color: white;
-		border-radius: 10px;
 		padding: 10px;
-		color: #95abc6;
 	}
 	.header_items ul li a {
-		background-color: white;
-		color: #000;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 17px;
+		padding: 10px;
+		font-weight: 600;
+		color: #fff;
+		letter-spacing: 1.2px;
+		border: none;
 	}
 	.activeMenu {
 		transform: translateX(-298px);
@@ -313,6 +345,12 @@ export default {
 	.header_items ul li {
 		margin-bottom: 10px;
 		margin-right: 0px !important;
+	}
+	.activeClass a::before {
+		background-color: #fff;
+	}
+	.header_items ul li a:hover::before {
+		background-color: #fff;
 	}
 }
 </style>

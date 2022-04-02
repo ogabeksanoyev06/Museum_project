@@ -4,18 +4,13 @@
 		<div class="container">
 			<div class="praduct_cards p-4 my-5 rounded">
 				<div class="row align-items-center">
-					<div class="col-md-4">
+					<div class="col-md-5">
 						<div class="card_img">
-							<img
-								src="../assets/12.png"
-								alt=""
-								style="min-width: 300px; height: 200px"
-								class="card-img-top rounded"
-							/>
+							<img src="../assets/12.png" alt="" class="card-img-top rounded" />
 						</div>
 					</div>
-					<div class="col-md-8">
-						<div class="card_about">
+					<div class="col-md-7">
+						<div class="card_about p-2">
 							<div class="card_title"><p>Card title</p></div>
 							<div class="card_text">
 								<p>
@@ -123,5 +118,15 @@ export default {
 	font-size: 15px;
 	line-height: 1.3rem;
 	letter-spacing: 1.2px;
+}
+.card_img {
+	background-color: #fff;
+	border-radius: 20px;
+	box-shadow: 0px 10px 30px rgba(209, 213, 223, 0.5);
+	padding: 35px 30px;
+	height: 300px;
+}
+.card_img img {
+	height: 100%;
 }
 </style>

@@ -1,17 +1,20 @@
-import Vue from 'vue'
+import Vue from 'vue';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import App from './App.vue';
 import router from './router/router.js';
 import store from './store/index.js';
 import { Vuelidate } from 'vuelidate';
+import VueAxios from 'vue-axios';
+import { axios } from 'axios';
 
 Vue.config.productionTip = false;
 Vue.use(Vuelidate);
 Vue.use(ElementUI);
+Vue.use(VueAxios, axios);
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+	router,
+	store,
+	render: h => h(App),
+}).$mount('#app');
