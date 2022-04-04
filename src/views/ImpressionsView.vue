@@ -24,8 +24,8 @@
 				</div>
 				<div class="col-md-6 box">
 					<el-carousel indicator-position="none" arrow="always" trigger="click">
-						<el-carousel-item v-for="(item,index) in slides" :key="index">
-							<img :src="item" alt="" class="" />
+						<el-carousel-item v-for="(item, index) in slides" :key="index">
+							<img :src="item" alt="" class="w-100 h-100" />
 						</el-carousel-item>
 					</el-carousel>
 				</div>

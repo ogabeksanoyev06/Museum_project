@@ -1,15 +1,18 @@
 <template>
 	<div id="app">
+		<page-loader />
 		<router-view></router-view>
 	</div>
 </template>
 <script>
+import PageLoader from './components/PageLoader.vue';
 export default {
+	components: { PageLoader },
 	name: 'App',
 };
 </script>
 
-<style lang="scss">
+<style>
 .shop_kar svg path {
 	fill: #1989fa;
 }

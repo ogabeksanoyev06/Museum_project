@@ -1,7 +1,12 @@
 <template>
 	<div class="footer">
 		<div class="top_window">
-			<el-button type="primary" icon="el-icon-caret-top" circle></el-button>
+			<el-button
+				type="primary"
+				icon="el-icon-caret-top"
+				circle
+				@click="TopWindow"
+			></el-button>
 		</div>
 		<div class="container footer_menu">
 			<div @click="goTo('home')" class="header_logo" style="cursor: pointer">
@@ -47,11 +52,15 @@ export default {
 			items: this.$store.state.items,
 		};
 	},
+
 	methods: {
 		goTo(page) {
 			page === 'home' ? this.$router.push('/') : '';
 		},
-		TopWindow() {},
+		TopWindow() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		},
 	},
 };
 </script>
@@ -63,8 +72,8 @@ export default {
 }
 .top_window {
 	position: fixed;
-	bottom: 60px;
-	right: 60px;
+	bottom: 30px;
+	right: 30px;
 	z-index: 999;
 }
 .footer_menu {
