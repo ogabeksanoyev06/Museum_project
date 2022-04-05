@@ -4,28 +4,34 @@
 		<MuseumAllComponent />
 		<div style="background-color: #f5f9fd" class="p-5 rounded my-5">
 			<p class="title_all">• Экспонаты</p>
+			<div
+				v-if="exhibits == ''"
+				class="d-flex align-items-center justify-content-center h-100 w-100"
+			>
+				<div
+					class="spinner-grow text-primary"
+					style="width: 3rem; height: 3rem"
+					role="status"
+				></div>
+			</div>
 			<div class="container">
 				<div class="row ml-0 mr-0">
 					<div
-						v-for="card in images"
-						:key="card.id"
+						v-for="(exhibit, i) in exhibits"
+						:key="i"
 						class="col-sm-12 col-md-4 col-lg-3 p-2"
 					>
 						<div class="cards">
 							<div class="card_item card_grow w-100">
 								<div class="card_img">
-									<img
-										:src="require('../assets/' + card.url)"
-										class="card-img-top"
-										alt=""
-									/>
+									<img :src="exhibit.url" class="card-img-top" alt="" />
 								</div>
 								<div class="card_body">
-									<h5 class="card-title">Crad Title</h5>
+									<h5 class="card-title">{{ exhibit.title }}</h5>
 									<p class="card-text mb-4">
 										Lorem ipsum dolor sit amet, consectetur adipisicing
 									</p>
-									<el-button class="w-100" @click="showExponant(card.id)"
+									<el-button class="w-100" @click="showExponant(exhibit.id)"
 										>More</el-button
 									>
 								</div>
@@ -44,7 +50,7 @@
 							<div class="col-md-6 d-flex justify-content-center">
 								<img
 									style="width: 200px; height: 200px"
-									:src="require('../assets/' + exp.url)"
+									:src="exp.url"
 									class="card-img-top"
 									alt=""
 								/>
@@ -86,20 +92,7 @@ export default {
 			innerVisible: false,
 			exp: null,
 			exhibits: [],
-			images: [
-				{
-					url: 'slider1.png',
-					title: 'lorem',
-					text: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus necessitatibus ab, commodi facilis delectus cum quia minima repudiandae, quo assumenda, distinctio iste dolore fugiat ad architecto quod itaque molestias natus?',
-					id: 0,
-				},
-				{ url: 'slider2.png', id: 1 },
-				{ url: 'slider3.png', id: 2 },
-				{ url: 'slider1.png', id: 3 },
-				{ url: 'slider2.png', id: 4 },
-				{ url: 'slider2.png', id: 5 },
-				{ url: 'slider3.png', id: 6 },
-			],
+			loading: true,
 		};
 	},
 	mounted() {
@@ -107,18 +100,24 @@ export default {
 	},
 	methods: {
 		showExponant(id) {
-			this.images.forEach(el => {
+			this.exhibits.forEach(el => {
 				if (el.id == id) {
 					this.exp = el;
 				}
 			});
 			this.outerVisible = true;
 		},
+
 		getExhibits() {
-			axios.get('https://jsonplaceholder.typicode.com/posts/1/comments').then(res => {
-				this.exhibits = res.data;
-				console.log(this.exhibits);
-			});
+			axios
+				.get('https://jsonplaceholder.typicode.com/photos?_limit=20')
+				.then(res => {
+					this.exhibits = res.data;
+					console.log(this.exhibits);
+				})
+				.catch(error => {
+					console.log(error);
+				});
 		},
 	},
 };
@@ -145,7 +144,7 @@ export default {
 	display: flex;
 	flex-direction: column;
 	min-width: 0;
-	background-color: #fff; 
+	background-color: #fff;
 }
 .card-img-top {
 	flex-shrink: 0;

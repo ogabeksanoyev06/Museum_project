@@ -5,13 +5,10 @@ import App from './App.vue';
 import router from './router/router.js';
 import store from './store/index.js';
 import { Vuelidate } from 'vuelidate';
-import VueAxios from 'vue-axios';
-import { axios } from 'axios';
 
 Vue.config.productionTip = false;
 Vue.use(Vuelidate);
 Vue.use(ElementUI);
-Vue.use(VueAxios, axios);
 
 new Vue({
 	router,

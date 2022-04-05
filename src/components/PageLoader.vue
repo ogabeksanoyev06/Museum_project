@@ -17,6 +17,7 @@
 
 <script>
 export default {
+	name: 'pageLoader',
 	data: () => {
 		return {
 			isloaded: false,
