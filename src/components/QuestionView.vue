@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <p class="title_all text-start my-5">• Часто задаваемые вопросы</p>
-    <el-collapse v-model="activeNames" @change="handleChange">
+    <el-collapse>
       <el-collapse-item
         v-for="item in $store.state.object"
         :key="item.title"

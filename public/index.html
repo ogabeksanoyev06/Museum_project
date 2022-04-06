@@ -12,18 +12,34 @@
 			crossorigin="anonymous"
 		/>
 		<title>Museum</title>
+		<style>
+			/* width */
+			::-webkit-scrollbar {
+				width: 10px;
+				border-radius: 0.25rem;
+			}
+
+			/* Track */
+			::-webkit-scrollbar-track {
+				background: rgb(240, 234, 234);
+				border-radius: 0.25rem;
+			}
+
+			/* Handle */
+			::-webkit-scrollbar-thumb {
+				background: #1989fa;
+				border-radius: 0.25rem;
+			}
+
+			/* Handle on hover */
+			::-webkit-scrollbar-thumb:hover {
+				background: #00458a;
+			}
+		</style>
 	</head>
 	<body>
-		<noscript>
-			<strong
-				>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
-				properly without JavaScript enabled. Please enable it to
-				continue.</strong
-			>
-		</noscript>
 		<div id="app"></div>
 		<!-- built files will be auto injected -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-		<script></script>
 	</body>
 </html>

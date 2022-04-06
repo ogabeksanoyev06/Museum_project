@@ -6,13 +6,9 @@
 					<div class="row align-items-center">
 						<div class="col-md-6">
 							<div>
-								<p class="title">Музей</p>
-								<p class="name">Истории Узбекистана</p>
-								<p class="text">
-									Принимая во внимание показатели успешности, дальнейшее
-									развитие различных форм деятельности способствует подготовке и
-									реализации.
-								</p>
+								<p class="title">{{ $t('message.allMuseum.name') }}</p>
+								<p class="name">{{ $t('message.allMuseum.title') }}</p>
+								<p class="text">{{ $t('message.allMuseum.text') }}</p>
 							</div>
 						</div>
 						<div class="col-md-6">

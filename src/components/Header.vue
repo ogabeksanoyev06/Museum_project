@@ -21,10 +21,10 @@
 				content="Phone: +998 71 299 99 99"
 				placement="bottom"
 			>
-				<a href="tel:+998 71 299 99 99"
-					><span class="fw-bold text-black">Тел:</span
-					><span class="text-black"> +998 71 299 99 99</span></a
-				>
+				<a href="tel:+998 71 299 99 99">
+					<span class="fw-bold text-black">Тел:</span>
+					<span class="text-black"> +998 71 299 99 99</span>
+				</a>
 			</el-tooltip>
 		</div>
 		<!-- logoo header -->
@@ -108,14 +108,14 @@
 					></router-link>
 				</div>
 				<!-- <i class="text-secondary bi bi-globe"></i> -->
-				<el-select style="width: 60px" v-model="value">
-					<el-option
-						v-for="(item, index) in options"
-						:key="index"
-						:label="item.label"
-						:value="item.value"
-					></el-option>
-				</el-select>
+				<select
+					style="width: 60px"
+					v-model="language"
+					@change="changeLanguage()"
+				>
+					<option value="uz">Uz</option>
+					<option value="en">En</option>
+				</select>
 				<div
 					class="logo_menu d-md-none d-flex"
 					:class="{ toggleMenu: btnActive }"
@@ -133,12 +133,6 @@
 <script>
 export default {
 	name: 'HeaderItem',
-	methods: {
-		goTo(page) {
-			page === 'home' ? this.$router.push('/') : '';
-		},
-	},
-
 	data() {
 		return {
 			items: this.$store.state.items,
@@ -146,13 +140,28 @@ export default {
 			btnActive: false,
 			praductSave: 7,
 			praduct: 0,
+			language: null,
 			options: [
-				{ value: 'Ru', label: 'Ru' },
 				{ value: 'En', label: 'En' },
 				{ value: 'Uz', label: 'Uz' },
 			],
-			value: 'Ru',
+			value: 'En',
 		};
+	},
+	methods: {
+		goTo(page) {
+			page === 'home' ? this.$router.push('/') : '';
+		},
+		changeLanguage() {
+			localStorage.setItem('lang', this.language);
+			window.location.reload();
+		},
+	},
+	created() {
+		if (localStorage.getItem('lang') == null) {
+			localStorage.setItem('lang', 'uz');
+		}
+		this.language = localStorage.getItem('lang');
 	},
 };
 </script>
