@@ -71,22 +71,7 @@ export default {
 			return this.slides.length;
 		},
 	},
-	methods: {
-		// next() {
-		// 	if (this.visibleSlide >= this.slidesLen - 1) {
-		// 		this.visibleSlide = 0;
-		// 	} else {
-		// 		this.visibleSlide++;
-		// 	}
-		// },
-		// prev() {
-		// 	if (this.visibleSlide <= 0) {
-		// 		this.visibleSlide = this.slidesLen - 1;
-		// 	} else {
-		// 		this.visibleSlide--;
-		// 	}
-		// },
-	},
+	
 	components: {
 		Header,
 		Footer,

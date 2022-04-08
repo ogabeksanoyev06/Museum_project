@@ -27,9 +27,13 @@
 									<img :src="exhibit.url" class="card-img-top" alt="" />
 								</div>
 								<div class="card_body">
-									<h5 class="card-title">{{ exhibit.title }}</h5>
+									<h5 class="card-title">{{ titleSlice(exhibit.title) }}</h5>
 									<p class="card-text mb-4">
-										Lorem ipsum dolor sit amet, consectetur adipisicing
+										{{
+											textSlice(
+												'Lorem ipsum dolor sit amet, consectetur adipisicing'
+											)
+										}}
 									</p>
 									<el-button class="w-100" @click="showExponant(exhibit.id)"
 										>More</el-button
@@ -39,7 +43,6 @@
 						</div>
 					</div>
 				</div>
-
 				<div v-if="exp">
 					<el-dialog
 						width="100%"
@@ -56,12 +59,7 @@
 								/>
 							</div>
 							<div class="col-md-6">
-								<p class="mt-2 mt-md-0">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Repellendus necessitatibus ab, commodi facilis delectus cum
-									quia minima repudiandae, quo assumenda, distinctio iste dolore
-									fugiat ad architecto quod itaque molestias natus?
-								</p>
+								<p class="mt-2 mt-md-0">{{ exp.title }}</p>
 								<p class="">
 									Lorem ipsum dolor sit amet consectetur adipisicing elit.
 									Repellendus necessitatibus ab, commodi facilis delectus cum
@@ -85,6 +83,7 @@ import axios from 'axios';
 export default {
 	name: 'ExhibitsView',
 	components: { Header, Footer, MuseumAllComponent },
+
 	data() {
 		return {
 			dialogVisible: false,
@@ -106,6 +105,16 @@ export default {
 				}
 			});
 			this.outerVisible = true;
+		},
+		titleSlice(text) {
+			if (text.length > 20) {
+				return text.slice(0, 12) + '...';
+			}
+		},
+		textSlice(text) {
+			if (text.length > 50) {
+				return text.slice(0, 40) + '...';
+			}
 		},
 
 		getExhibits() {
@@ -145,6 +154,9 @@ export default {
 	flex-direction: column;
 	min-width: 0;
 	background-color: #fff;
+	box-shadow: 1px 1px 6px 0 rgba(0, 0, 0, 0.2);
+	border-radius: 8px;
+	transition: all 0.5s;
 }
 .card-img-top {
 	flex-shrink: 0;
@@ -156,22 +168,22 @@ export default {
 	padding: 1.25rem;
 }
 .card_body h5 {
-	font-size: 1.28rem;
-	color: #201e1e;
+	font-size: 22px;
+	font-weight: 700;
+	color: #091e42 !important;
 }
 .card_body .card-text {
-	color: #b3b5c2;
+	color: #091e42 !important;
 	font-size: 0.9rem;
-	height: 55px;
+	max-height: 15rem;
+	line-height: 20px;
 	overflow: hidden;
 }
 .card_item:active,
 .card_item:focus,
 .card_item:hover {
-	transform: scale(1.05);
 	z-index: 1010;
-	border: 0;
-	box-shadow: 0 2px 36px rgb(0 0 0 / 19%);
+	box-shadow: 2px 5px 25px -4px rgba(0, 0, 0, 0.35);
 	cursor: pointer;
 }
 img {

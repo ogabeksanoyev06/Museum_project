@@ -49,9 +49,9 @@ export default {
 }
 // -----------------------------------------------------
 .wave {
-	width: 5px;
+	width: 8px;
 	height: 100px;
-	background: linear-gradient(45deg, cyan, #fff);
+	background: linear-gradient(50deg, #1989fa, #fff);
 	margin: 10px;
 	animation: wave 1s linear infinite;
 	border-radius: 20px;

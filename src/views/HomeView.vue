@@ -2,14 +2,12 @@
 	<div class="">
 		<Header />
 		<MuseumAllComponent />
+
 		<div class="mt-4 box">
 			<div class="container">
 				<div class="row align-items-center">
 					<div class="col-md-6">
-						<div
-							class="d-flex flex-wrap justify-content-center py-5"
-							style="box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)"
-						>
+						<div class="d-flex flex-wrap justify-content-center py-5">
 							<img
 								class="img-fluid m-1"
 								src="../assets/Rectangle 45.png"
@@ -34,24 +32,14 @@
 					</div>
 					<div class="col-md-6 mt-5 mt-md-0">
 						<p>
-							Немного <span class="text-primary">о нашей истории</span> и в
+							{{ $t('message.home.title') }}
+							<!-- Немного <span class="text-primary">о нашей истории</span> и в
 							целом
-							<span class="text-primary">о нас</span>
+							<span class="text-primary">о нас</span> -->
 						</p>
-						<p>
-							<span class="text-black"
-								>Государственный Музей Истории Узбекистана</span
-							>
-							был основан 12 июля 1876 года в качестве Народного Музея
-							Туркестана.
-						</p>
-						<p>
-							+998987744580 993892894 В короткое время с момента своего создания
-							музей сумел пополнить не только свою главную экспозицию, но также
-							и подготовил и провел ряд международных выставок:
-							<span class="text-black">в Париже</span> (в 1900 году) и в Милане
-							(в 1906 году). Также музей способствовал открытию музеев в
-							Самарканде (1896 год) и в Фергане (1899 год).
+
+						<p class="text-center">
+							{{ $t('message.home.text') }}
 						</p>
 					</div>
 				</div>

@@ -36,7 +36,7 @@
 			</div>
 		</div>
 		<div class="container">
-			<div class="product"><product-list></product-list>ain</div>
+			<div class="product"><product-list></product-list></div>
 		</div>
 		<Footer />
 	</div>

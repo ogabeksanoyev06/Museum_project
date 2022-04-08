@@ -1,6 +1,14 @@
 <template>
 	<div class="header pb-3">
-		<!-- logoo header -->
+		<marquee
+			class=""
+			data-v-398c99f6=""
+			behavior=""
+			direction="left"
+			style="color: rgb(149, 171, 198)"
+			>Sayt test rejimida ishlamoqda... Kamchiliklar uchun uzr so'raymiz
+		</marquee>
+
 		<div
 			class="d-flex container align-items-center justify-content-center justify-content-md-between flex-wrap"
 		>
@@ -27,16 +35,7 @@
 				</a>
 			</el-tooltip>
 		</div>
-		<!-- logoo header -->
-		<div
-			style="cursor: pointer"
-			class="mb-5 d-none d-md-flex align-items-center justify-content-center"
-			@click="goTo('home')"
-		>
-			<img src="../assets/logo.png" alt="logo" class="me-2" />
-			<span>MUSEUM</span>
-		</div>
-
+		<hr class="hr" />
 		<div
 			class="header_items container d-flex align-items-center justify-content-between"
 		>
@@ -109,6 +108,7 @@
 				</div>
 				<!-- <i class="text-secondary bi bi-globe"></i> -->
 				<select
+					class="me-3"
 					style="width: 60px"
 					v-model="language"
 					@change="changeLanguage()"
@@ -117,7 +117,7 @@
 					<option value="en">En</option>
 				</select>
 				<div
-					class="logo_menu d-md-none d-flex"
+					class="logo_menu d-md-none d-flex mr-2"
 					:class="{ toggleMenu: btnActive }"
 					@click="(isActive = !isActive), (btnActive = !btnActive)"
 				>
@@ -167,6 +167,11 @@ export default {
 </script>
 
 <style>
+.hr {
+	width: 100%;
+	opacity: 0.1;
+	border: 1px solid #000;
+}
 .el-input__inner {
 	border: none;
 	padding-left: 2px;
@@ -248,11 +253,10 @@ export default {
 	justify-content: center;
 	font-size: 17px;
 	padding: 5px 10px;
-	border-radius: 5px;
-	font-weight: 600;
+	font-weight: 700;
 	color: #95abc6;
 	letter-spacing: 1.2px;
-	border: 1px solid #1989fa;
+	z-index: 0;
 }
 .header_items ul li a::after {
 	background-color: #1989fa;
@@ -265,7 +269,6 @@ export default {
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-	border-radius: 0.25rem;
 	transition: transform 0.5s;
 	transition-timing-function: ease;
 	transform-origin: 0 0;
@@ -313,6 +316,9 @@ export default {
 	opacity: 1;
 }
 
+@media (min-width: 768px) {
+}
+
 @media (max-width: 768px) {
 	.header_item {
 		position: fixed;
@@ -326,7 +332,7 @@ export default {
 		justify-content: center;
 		background: linear-gradient(279.37deg, #008ae4, #a6dcff 158.68%);
 		box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.08);
-		width: 320px;
+		width: 310px;
 		transform: translateX(0);
 		height: 100vh !important;
 		transition: 0.2s ease-in-out;

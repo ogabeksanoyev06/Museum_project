@@ -1,8 +1,8 @@
 <template>
-	<div class="allComponent py-5 mt-3">
-		<el-carousel :interval="0" arrow="always" height="500px">
-			<el-carousel-item v-for="item in 4" :key="item">
-				<div class="container p-3">
+	<div class="allComponent py-5">
+		<el-carousel :interval="3000" arrow="always" height="500px">
+			<el-carousel-item v-for="(item, index) in museumAll" :key="index">
+				<div class="container p-3 d-flex align-items-center">
 					<div class="row align-items-center">
 						<div class="col-md-6">
 							<div>
@@ -15,9 +15,8 @@
 							<div class="img_museum">
 								<img
 									class="rounded img-fluid"
-									style="height: auto"
-									src="../assets/Rectangle 2.png"
-									alt=""
+									:src="require('../assets/MuseumPicture/' + item.url)"
+									alt="img"
 								/>
 							</div>
 						</div>
@@ -30,6 +29,11 @@
 <script>
 export default {
 	name: 'museumAllComponent',
+	data() {
+		return {
+			museumAll: [{ url: '1.jpg' }, { url: '2.jpg' }, { url: '3.jpg' }],
+		};
+	},
 };
 </script>
 <style>
@@ -38,6 +42,11 @@ export default {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
+	background-attachment: fixed;
+}
+.el-carousel__item {
+	display: flex;
+	align-items: center;
 }
 .el-carousel__container .el-carousel__arrow {
 	top: 0;
@@ -76,8 +85,7 @@ export default {
 		font-size: 16px;
 	}
 	.img_museum img {
-		width: 400px;
-		height: 300px;
+		width: 100%;
 	}
 	.allComponent {
 		text-align: center;
