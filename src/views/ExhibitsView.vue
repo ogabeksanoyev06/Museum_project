@@ -17,14 +17,18 @@
 			<div class="container">
 				<div class="row ml-0 mr-0">
 					<div
-						v-for="(exhibit, i) in exhibits"
+						v-for="(exhibit, i) in this.$store.state.eksponant"
 						:key="i"
 						class="col-sm-12 col-md-4 col-lg-3 p-2"
 					>
 						<div class="cards">
 							<div class="card_item card_grow w-100">
-								<div class="card_img">
-									<img :src="exhibit.url" class="card-img-top" alt="" />
+								<div class="card_img card-img-top">
+									<img
+										:src="require('../assets/eksponant/' + exhibit.image)"
+										class=""
+										alt=""
+									/>
 								</div>
 								<div class="card_body">
 									<h5 class="card-title">{{ titleSlice(exhibit.title) }}</h5>
@@ -50,11 +54,12 @@
 						:visible.sync="outerVisible"
 					>
 						<div class="row align-items-center">
-							<div class="col-md-6 d-flex justify-content-center">
+							<div
+								class="col-md-6 d-flex justify-content-center cart_img_modal"
+							>
 								<img
-									style="width: 200px; height: 200px"
-									:src="exp.url"
-									class="card-img-top"
+									:src="require('../assets/eksponant/' + exp.image)"
+									class="w-100"
 									alt=""
 								/>
 							</div>
@@ -79,7 +84,7 @@
 import Footer from '../components/Footer.vue';
 import Header from '@/components/Header.vue';
 import MuseumAllComponent from '@/components/MuseumAllComponent.vue';
-import axios from 'axios';
+// import axios from 'axios';
 export default {
 	name: 'ExhibitsView',
 	components: { Header, Footer, MuseumAllComponent },
@@ -90,7 +95,6 @@ export default {
 			outerVisible: false,
 			innerVisible: false,
 			exp: null,
-			exhibits: [],
 			loading: true,
 		};
 	},
@@ -99,7 +103,7 @@ export default {
 	},
 	methods: {
 		showExponant(id) {
-			this.exhibits.forEach(el => {
+			this.$store.state.eksponant.forEach(el => {
 				if (el.id == id) {
 					this.exp = el;
 				}
@@ -117,17 +121,17 @@ export default {
 			}
 		},
 
-		getExhibits() {
-			axios
-				.get('https://jsonplaceholder.typicode.com/photos?_limit=20')
-				.then(res => {
-					this.exhibits = res.data;
-					console.log(this.exhibits);
-				})
-				.catch(error => {
-					console.log(error);
-				});
-		},
+		// getExhibits() {
+		// 	axios
+		// 		.get('https://jsonplaceholder.typicode.com/photos?_limit=20')
+		// 		.then(res => {
+		// 			this.exhibits = res.data;
+		// 			console.log(this.exhibits);
+		// 		})
+		// 		.catch(error => {
+		// 			console.log(error);
+		// 		});
+		// },
 	},
 };
 </script>
@@ -159,8 +163,33 @@ export default {
 	transition: all 0.5s;
 }
 .card-img-top {
-	flex-shrink: 0;
 	width: 100%;
+	height: 200px;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+.cart_img_modal {
+	max-height: 300px;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+.cart_img_modal img {
+	height: 100%;
+}
+.card-img-top img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	-o-object-fit: cover;
+	object-fit: cover;
+	transition: transform 0.2s ease-out;
+	transform-origin: 50%;
 }
 .card_body {
 	flex: 1 1 auto;
@@ -185,6 +214,9 @@ export default {
 	z-index: 1010;
 	box-shadow: 2px 5px 25px -4px rgba(0, 0, 0, 0.35);
 	cursor: pointer;
+}
+.card_item:hover .card-img-top img {
+	transform: scale(1.2);
 }
 img {
 	vertical-align: middle;

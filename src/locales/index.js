@@ -8,8 +8,8 @@ const messages = {
 	en: en,
 };
 
-// Create VueI18n instance with options
+
 export default new VueI18n({
-	locale: localStorage.getItem('lang'), // set locale
-	messages, // set locale messages
+	locale: localStorage.getItem('lang'), // locall
+	messages, 
 });

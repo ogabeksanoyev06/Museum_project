@@ -1,5 +1,5 @@
 <template>
-	<div class="header pb-3">
+	<div class="header mb-3">
 		<marquee
 			class=""
 			data-v-398c99f6=""
@@ -8,7 +8,7 @@
 			style="color: rgb(149, 171, 198)"
 			>Sayt test rejimida ishlamoqda... Kamchiliklar uchun uzr so'raymiz
 		</marquee>
-
+		<!-- logoo header -->
 		<div
 			class="d-flex container align-items-center justify-content-center justify-content-md-between flex-wrap"
 		>
@@ -35,7 +35,16 @@
 				</a>
 			</el-tooltip>
 		</div>
-		<hr class="hr" />
+		<!-- logoo header -->
+		<div
+			style="cursor: pointer"
+			class="d-none d-md-flex align-items-center justify-content-center"
+			@click="goTo('home')"
+		>
+			<img src="../assets/logo.png" alt="logo" class="me-2" />
+			<span>MUSEUM</span>
+		</div>
+		<hr class="hr my-0 mb-2" />
 		<div
 			class="header_items container d-flex align-items-center justify-content-between"
 		>
@@ -315,7 +324,6 @@ export default {
 .header_items ul li a:hover {
 	opacity: 1;
 }
-
 @media (min-width: 768px) {
 }
 
