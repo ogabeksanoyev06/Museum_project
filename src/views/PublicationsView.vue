@@ -36,13 +36,16 @@
 				</div>
 			</div>
 		</div>
-		<div class="container">
-			<div class="d-flex flex-wrap mb-2">
+		<div class="container bg-light p-5">
+			<p class="title_all text-start">Title Books</p>
+			<!-- <div class="d-flex flex-wrap mb-2">
 				<el-button>All</el-button>
 				<el-button>Exponant1</el-button>
 				<el-button>Exponant2</el-button>
-			</div>
-			<el-input placeholder="Please input" v-model="search"></el-input>
+			</div> -->
+			<form action="" class="mb-3 text-end">
+				<input type="text" v-model="search" placeholder="Serach..." />
+			</form>
 			<div
 				v-if="publications == ''"
 				class="d-flex align-items-center justify-content-center h-100 w-100"
@@ -182,6 +185,15 @@ export default {
 };
 </script>
 <style scoped>
+form input {
+	width: 20rem;
+	padding: 0.5rem;
+	border: none;
+	outline: none;
+	font-size: 1.6rem;
+	border-radius: 5px;
+	border-bottom: 3px solid #1989fa;
+}
 .cards {
 	position: relative;
 	z-index: 2;
