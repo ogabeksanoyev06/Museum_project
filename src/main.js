@@ -7,8 +7,8 @@ import store from './store/index.js';
 import { Vuelidate } from 'vuelidate';
 import i18n from './locales/index';
 
-
 Vue.config.productionTip = false;
+
 Vue.use(Vuelidate);
 Vue.use(ElementUI);
 

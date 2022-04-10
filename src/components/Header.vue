@@ -37,7 +37,7 @@
 		</div>
 		<!-- logoo header -->
 		<div
-			style="cursor: pointer"
+			style="cursor: pointer; flex: 1"
 			class="d-none d-md-flex align-items-center justify-content-center"
 			@click="goTo('home')"
 		>
@@ -63,14 +63,14 @@
 				</li>
 			</ul>
 			<div
-				style="cursor: pointer"
-				class="d-flex d-md-none align-items-center justify-content-center"
+				style="cursor: pointer;flex-1"
+				class="d-flex d-md-none align-items-center justifu-content-md-start justify-content-center"
 				@click="goTo('home')"
 			>
 				<img src="../assets/logo.png" alt="logo" class="me-2" />
 				<span>MUSEUM</span>
 			</div>
-			<div class="d-flex align-items-center">
+			<!-- <div class="d-flex align-items-center"> 
 				<div class="me-3">
 					<router-link :to="{}"
 						><el-badge
@@ -114,11 +114,12 @@
 								></path>
 							</svg> </el-badge
 					></router-link>
-				</div>
-				<!-- <i class="text-secondary bi bi-globe"></i> -->
+				</div> 
+				<i class="text-secondary bi bi-globe"></i> -->
+			<div class="d-flex align-items-center">
 				<select
-					class="me-3"
-					style="width: 60px"
+					class="form-select me-1 p-0"
+					style="width: 70px"
 					v-model="language"
 					@change="changeLanguage()"
 				>

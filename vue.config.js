@@ -3,11 +3,10 @@ module.exports = defineConfig({
 	transpileDependencies: true,
 });
 module.exports = {
-	runtimeCompiler: true,
 	pluginOptions: {
 		i18n: {
-			locale: 'en',
-			fallbackLocale: 'ru',
+			locale: 'uz',
+			fallbackLocale: 'uz',
 			localeDir: 'locales',
 			enableInSFC: false,
 		},

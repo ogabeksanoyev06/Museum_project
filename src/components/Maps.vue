@@ -74,7 +74,6 @@
 							class="form-check-input"
 							type="checkbox"
 							value=""
-							id="flexCheckDefault"
 						/>
 						<label class="form-check-label" for="flexCheckDefault">
 							{{ $t('message.mapsAmail.input') }}

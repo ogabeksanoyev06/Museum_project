@@ -37,6 +37,12 @@
 			</div>
 		</div>
 		<div class="container">
+			<div class="d-flex flex-wrap mb-2">
+				<el-button>All</el-button>
+				<el-button>Exponant1</el-button>
+				<el-button>Exponant2</el-button>
+			</div>
+			<el-input placeholder="Please input" v-model="search"></el-input>
 			<div
 				v-if="publications == ''"
 				class="d-flex align-items-center justify-content-center h-100 w-100"
@@ -49,7 +55,7 @@
 			</div>
 			<div class="row">
 				<div
-					v-for="(publication, i) in publications"
+					v-for="(publication, i) in filteredBooks"
 					:key="i"
 					class="col-md-3 mb-4"
 				>
@@ -62,11 +68,10 @@
 								class="my-3"
 								v-model="smile"
 								:texts="['Oops', 'Disappointed', 'Normal', 'Good', 'Great']"
-								:key="publication.id"
-								show-text
+								:key="i"
 							>
 							</el-rate>
-							<h3>Books title</h3>
+							<h3>{{ publication.title }}</h3>
 							<p>
 								Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit,
 								animi.
@@ -140,10 +145,18 @@ export default {
 			],
 			smile: null,
 			iconClasses: ['icon-rate-face-1', 'icon-rate-face-2', 'icon-rate-face-3'],
+			search: '',
 		};
 	},
 	mounted() {
 		this.getPublications();
+	},
+	computed: {
+		filteredBooks() {
+			return this.publications.filter(publication =>
+				publication.title.toLowerCase().includes(this.search.toLowerCase())
+			);
+		},
 	},
 	methods: {
 		getPublications() {

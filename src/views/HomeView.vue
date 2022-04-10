@@ -2,7 +2,7 @@
 	<div class="">
 		<Header />
 		<MuseumAllComponent />
-
+		<panaroma-view />
 		<div class="mt-4 box">
 			<div class="container">
 				<div class="row align-items-center">
@@ -69,6 +69,7 @@ import Header from '../components/Header.vue';
 import MuseumAllComponent from '../components/MuseumAllComponent.vue';
 import Question from '@/components/QuestionView.vue';
 import Maps from '../components/Maps.vue';
+import PanaromaView from '../components/PanaromaView.vue';
 export default {
 	name: 'HomeView',
 	data() {
@@ -83,6 +84,7 @@ export default {
 		MuseumAllComponent,
 		Question,
 		Maps,
+		PanaromaView,
 	},
 };
 </script>

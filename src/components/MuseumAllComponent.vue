@@ -38,10 +38,10 @@ export default {
 </script>
 <style>
 .allComponent {
-	background-image: url('https://shm.ru/upload/iblock/ed9/_.jpg?v=v1648790040');
+	background-image: url('../assets/photo_2022-04-09_11-59-07.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-position: center center;
+	background-position: center end;
 	background-attachment: fixed;
 }
 .el-carousel__item {

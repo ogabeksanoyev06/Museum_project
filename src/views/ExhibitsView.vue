@@ -84,7 +84,7 @@
 import Footer from '../components/Footer.vue';
 import Header from '@/components/Header.vue';
 import MuseumAllComponent from '@/components/MuseumAllComponent.vue';
-// import axios from 'axios';
+import axios from 'axios';
 export default {
 	name: 'ExhibitsView',
 	components: { Header, Footer, MuseumAllComponent },
@@ -94,6 +94,7 @@ export default {
 			dialogVisible: false,
 			outerVisible: false,
 			innerVisible: false,
+			exhibits: [],
 			exp: null,
 			loading: true,
 		};
@@ -121,17 +122,17 @@ export default {
 			}
 		},
 
-		// getExhibits() {
-		// 	axios
-		// 		.get('https://jsonplaceholder.typicode.com/photos?_limit=20')
-		// 		.then(res => {
-		// 			this.exhibits = res.data;
-		// 			console.log(this.exhibits);
-		// 		})
-		// 		.catch(error => {
-		// 			console.log(error);
-		// 		});
-		// },
+		getExhibits() {
+			axios
+				.get('https://jsonplaceholder.typicode.com/photos?_limit=20')
+				.then(res => {
+					this.exhibits = res.data;
+					console.log(this.exhibits);
+				})
+				.catch(error => {
+					console.log(error);
+				});
+		},
 	},
 };
 </script>

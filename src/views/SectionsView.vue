@@ -2,7 +2,7 @@
 	<div>
 		<Header />
 		<MuseumAllComponent />
-		<div class="my-5 pt-5 bg-light">
+		<div class="my-5 pt-5" style="background-color: #435b71">
 			<el-carousel :interval="0" arrow="always" height="600px">
 				<el-carousel-item v-for="(item, index) in slides" :key="index">
 					<div class="h-100 container d-flex align-items-center">
@@ -21,7 +21,7 @@
 										<img :src="item" alt="" class="me-2 img-fluid" />
 										<img :src="item" alt="" class="img-fluid" />
 									</div>
-									<p class="text-primary text-center">
+									<p class="text-white text-center">
 										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 										Morbi non scelerisque enim, in tincidunt leo.
 									</p>
@@ -71,7 +71,7 @@ export default {
 			return this.slides.length;
 		},
 	},
-	
+
 	components: {
 		Header,
 		Footer,
