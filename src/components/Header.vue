@@ -58,7 +58,7 @@
 					<router-link
 						@click="$route.name === item.name"
 						:to="{ name: item.name }"
-						>{{ item.title }}</router-link
+						>{{ $t(item.title) }}</router-link
 					>
 				</li>
 			</ul>

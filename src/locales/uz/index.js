@@ -28,4 +28,9 @@ export default {
 			quationss: 'Tez-tez so`raladigan savollar',
 		},
 	},
+	'О нас': 'Biz haqimizda',
+	Экспонаты: 'Eksponantlar',
+	Отделы: 'Bo`limlar',
+	Издания: 'Nashrlar',
+	Выставки: 'Qo`shimcha',
 };
