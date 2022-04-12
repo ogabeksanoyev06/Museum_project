@@ -26,12 +26,12 @@
 			<el-tooltip
 				class="item"
 				effect="dark"
-				content="Phone: +998 71 299 99 99"
+				content="Phone: +(998) 71 239-10-83"
 				placement="bottom"
 			>
-				<a href="tel:+998 71 299 99 99">
+				<a href="tel:+(998) 71 239-10-83">
 					<span class="fw-bold text-black">Тел:</span>
-					<span class="text-black"> +998 71 299 99 99</span>
+					<span class="text-black"> +(998) 71 239-10-83</span>
 				</a>
 			</el-tooltip>
 		</div>
