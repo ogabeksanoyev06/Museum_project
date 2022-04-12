@@ -82,7 +82,7 @@ export default new Vuex.Store({
 				image: '5.jpg',
 				title: 'lorem eksponant ipsum1',
 				text: '',
-				name: 'eksponant1',
+				name: 'eksponant2',
 				id: 4,
 			},
 			{
@@ -96,7 +96,7 @@ export default new Vuex.Store({
 				image: '7.jpg',
 				title: 'lorem eksponant ipsum1',
 				text: '',
-				name: 'eksponant1',
+				name: 'eksponant3',
 				id: 6,
 			},
 			{
@@ -110,7 +110,7 @@ export default new Vuex.Store({
 				image: '9.jpg',
 				title: 'lorem eksponant ipsum1',
 				text: '',
-				name: 'eksponant1',
+				name: 'eksponant3',
 				id: 8,
 			},
 			{

@@ -43,7 +43,7 @@
 				<el-button>Exponant1</el-button>
 				<el-button>Exponant2</el-button>
 			</div> -->
-			<form action="" class="mb-3 text-end">
+			<form action="" class="mb-3">
 				<input type="text" v-model="search" placeholder="Serach..." />
 			</form>
 			<div
@@ -187,10 +187,10 @@ export default {
 <style scoped>
 form input {
 	width: 20rem;
-	padding: 0.5rem;
+	padding: 0.2rem;
 	border: none;
 	outline: none;
-	font-size: 1.6rem;
+	font-size: 1rem;
 	border-radius: 5px;
 	border-bottom: 3px solid #1989fa;
 }

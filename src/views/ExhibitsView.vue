@@ -4,6 +4,7 @@
 		<MuseumAllComponent />
 		<div style="background-color: #f5f9fd" class="p-5 rounded my-5">
 			<p class="title_all">• Экспонаты</p>
+
 			<div
 				v-if="exhibits == ''"
 				class="d-flex align-items-center justify-content-center h-100 w-100"
@@ -15,20 +16,19 @@
 				></div>
 			</div>
 			<div class="container">
+				<form action="" class="mb-3">
+					<input type="text" v-model="search" placeholder="Serach..." />
+				</form>
 				<div class="row ml-0 mr-0">
 					<div
-						v-for="(exhibit, i) in this.$store.state.eksponant"
+						v-for="(exhibit, i) in filterEksponant"
 						:key="i"
 						class="col-sm-12 col-md-4 col-lg-3 p-2"
 					>
 						<div class="cards">
 							<div class="card_item card_grow w-100">
 								<div class="card_img card-img-top">
-									<img
-										:src="require('../assets/eksponant/' + exhibit.image)"
-										class=""
-										alt=""
-									/>
+									<img :src="exhibit.url" class="" alt="" />
 								</div>
 								<div class="card_body">
 									<h5 class="card-title">{{ titleSlice(exhibit.title) }}</h5>
@@ -57,11 +57,7 @@
 							<div
 								class="col-md-6 d-flex justify-content-center cart_img_modal"
 							>
-								<img
-									:src="require('../assets/eksponant/' + exp.image)"
-									class="w-100"
-									alt=""
-								/>
+								<img :src="exp.url" class="w-100" alt="" />
 							</div>
 							<div class="col-md-6">
 								<p class="mt-2 mt-md-0">{{ exp.title }}</p>
@@ -97,14 +93,42 @@ export default {
 			exhibits: [],
 			exp: null,
 			loading: true,
+			search: '',
 		};
 	},
 	mounted() {
-		this.getExhibits();
+		this.getExponant();
+	},
+	computed: {
+		filterEksponant() {
+			return this.exhibits.filter(exhibit =>
+				exhibit.title.toLowerCase().includes(this.search.toLowerCase())
+			);
+		},
+		// 	filteredProducts() {
+		// 		if (this.sorteProducts.length > 0) {
+		// 			return this.sorteProducts;
+		// 		} else {
+		// 			return this.$store.state.eksponant;
+		// 		}
+		// 	},
 	},
 	methods: {
+		// sortByCategories(category) {
+		// 	this.sorteProducts = [];
+		// 	this.sorteProducts = this.$store.state.eksponant.map(item => {
+		// 		if (category.name == item.name) {
+		// 			this.sorteProducts.push(item);
+		// 		}
+		// 	});
+		// },
+		filteredEksponant() {
+			return this.$store.state.eksponant.filter(exhibit =>
+				exhibit.title.toLowerCase().includes(this.search.toLowerCase())
+			);
+		},
 		showExponant(id) {
-			this.$store.state.eksponant.forEach(el => {
+			this.exhibits.forEach(el => {
 				if (el.id == id) {
 					this.exp = el;
 				}
@@ -121,16 +145,15 @@ export default {
 				return text.slice(0, 40) + '...';
 			}
 		},
-
-		getExhibits() {
+		getExponant() {
 			axios
 				.get('https://jsonplaceholder.typicode.com/photos?_limit=20')
 				.then(res => {
 					this.exhibits = res.data;
 					console.log(this.exhibits);
 				})
-				.catch(error => {
-					console.log(error);
+				.catch(err => {
+					console.log(err);
 				});
 		},
 	},
@@ -138,6 +161,15 @@ export default {
 </script>
 
 <style scoped>
+form input {
+	width: 20rem;
+	padding: 0.2rem;
+	border: none;
+	outline: none;
+	font-size: 1.2rem;
+	border-radius: 5px;
+	border-bottom: 3px solid #1989fa;
+}
 .el-dialog {
 	width: 100% !important;
 }

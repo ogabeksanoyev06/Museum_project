@@ -32,6 +32,6 @@ export default {
 	'О нас': 'About',
 	Экспонаты: 'Exhibits',
 	Отделы: 'Departments',
-	Издания: 'Editions',
+	Издания: 'Publicity',
 	Выставки: 'Inserts',
 };

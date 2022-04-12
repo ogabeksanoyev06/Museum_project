@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import i18n from '../i18n';
 Vue.use(Router);
 export default new Router({
 	mode: 'history',
@@ -8,53 +7,39 @@ export default new Router({
 	routes: [
 		{
 			path: '/',
-			redirect: `/${i18n.locale}`,
+			name: 'home',
+			component: () => import('../views/HomeView.vue'),
 		},
 		{
-			path: '/:lang',
-			component: {
-				render(c) {
-					return c('router-view');
-				},
-			},
-			children: [
-				{
-					path: '/',
-					name: 'home',
-					component: () => import('../views/HomeView.vue'),
-				},
-				{
-					path: 'about',
-					name: 'about',
-					component: () => import('../views/AboutView.vue'),
-				},
-				{
-					path: 'exhibits',
-					name: 'exhibits',
-					component: () => import('../views/ExhibitsView.vue'),
-				},
-				{
-					path: 'sections',
-					name: 'sections',
-					component: () => import('../views/SectionsView.vue'),
-				},
-				{
-					path: 'publications',
-					name: 'publications',
-					component: () => import('../views/PublicationsView.vue'),
-				},
-				{
-					path: 'impressions',
-					name: 'impressions',
-					component: () => import('../views/ImpressionsView.vue'),
-				},
-				{
-					path: 'product/:id',
-					name: 'products',
-					component: () => import('../views/Product.vue'),
-					props: true,
-				},
-			],
+			path: '/about',
+			name: 'about',
+			component: () => import('../views/AboutView.vue'),
+		},
+		{
+			path: '/exhibits',
+			name: 'exhibits',
+			component: () => import('../views/ExhibitsView.vue'),
+		},
+		{
+			path: '/sections',
+			name: 'sections',
+			component: () => import('../views/SectionsView.vue'),
+		},
+		{
+			path: '/publications',
+			name: 'publications',
+			component: () => import('../views/PublicationsView.vue'),
+		},
+		{
+			path: '/impressions',
+			name: 'impressions',
+			component: () => import('../views/ImpressionsView.vue'),
+		},
+		{
+			path: 'product/:id',
+			name: 'products',
+			component: () => import('../views/Product.vue'),
+			props: true,
 		},
 	],
 });
