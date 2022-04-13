@@ -212,7 +212,7 @@ export default {
 
 .logo_menu {
 	position: relative;
-	background-color: #fff;
+	background-color: rgba(47, 47, 48, 0.8);
 	width: 40px;
 	height: 40px;
 	border-radius: 5px;
@@ -221,13 +221,14 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	z-index: 9999;
 	overflow: hidden;
 }
 .logo_menu span {
 	position: absolute;
 	width: 30px;
 	height: 2px;
-	background-color: #1989fa;
+	background-color: #fff;
 	transition: 0.5s;
 }
 .logo_menu span:nth-child(1) {
@@ -339,12 +340,20 @@ export default {
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		background: linear-gradient(279.37deg, #008ae4, #a6dcff 158.68%);
+		background: rgba(34, 35, 36, 1);
 		box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.08);
 		width: 310px;
 		transform: translateX(0);
 		height: 100vh !important;
-		transition: 0.2s ease-in-out;
+		transition: transform 0.5s;
+		transition-timing-function: ease;
+		transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+	}
+	.logo_menu {
+		position: -webkit-sticky;
+		position: sticky;
+		top: 0;
+		right: 0;
 	}
 	.header_items ul li {
 		min-width: 200px;
@@ -363,8 +372,7 @@ export default {
 		border: none;
 	}
 	.activeMenu {
-		transform: translateX(-298px);
-		opacity: 0;
+		transform: translateX(-100%);
 	}
 	.header_items ul li {
 		margin-bottom: 10px;
@@ -375,6 +383,12 @@ export default {
 	}
 	.header_items ul li a:hover::before {
 		background-color: #fff;
+	}
+	.activeClass a {
+		background-color: rgba(47, 47, 48, 0.8);
+	}
+	.header_items ul li a::after {
+		background-color: rgba(47, 47, 48, 0.8);
 	}
 }
 </style>

@@ -2,7 +2,7 @@
 	<div>
 		<Header />
 		<MuseumAllComponent />
-		<div style="background-color: #f5f9fd" class="p-5 rounded my-5">
+		<div class="p-5 rounded my-5">
 			<p class="title_all">• Экспонаты</p>
 
 			<div
@@ -16,12 +16,43 @@
 				></div>
 			</div>
 			<div class="container">
-				<form action="" class="mb-3">
+				<div class="tabs_section">
+					<div class="d-flex align-items-center flex-wrap">
+						<p
+							style="
+								font-size: 25px;
+								font-weight: 700;
+								font-family: inherit;
+								color: black;
+							"
+						>
+							Bizning Eksponantlar
+						</p>
+					</div>
+					<div class="tab__main mb-5">
+						<div class="d-flex align-items-center flex-wrap">
+							<ul
+								class="tab d-flex flex-wrap align-items-center justify-content-center"
+							>
+								<li
+									v-for="(tab_item, i) in tab_items"
+									:key="i"
+									:class="{ activeTab: tab_item.id === activeId }"
+									@click="activeTabs(i)"
+									class="tab__item active"
+								>
+									{{ tab_item.nmae }}
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- <form action="" class="mb-3">
 					<input type="text" v-model="search" placeholder="Serach..." />
-				</form>
+				</form> -->
 				<div class="row ml-0 mr-0">
 					<div
-						v-for="(exhibit, i) in filterEksponant"
+						v-for="(exhibit, i) in filteredProducts"
 						:key="i"
 						class="col-sm-12 col-md-4 col-lg-3 p-2"
 					>
@@ -87,10 +118,19 @@ export default {
 
 	data() {
 		return {
-			dialogVisible: false,
-			outerVisible: false,
+			tab_items: [
+				{ nmae: 'Davr1', id: 0 },
+				{ nmae: 'Davr2', id: 1 },
+				{ nmae: 'Davr3', id: 2 },
+				{ nmae: 'Davr4', id: 3 },
+				{ nmae: 'Davr5', id: 4 },
+				{ nmae: 'Davr6', id: 5 },
+				{ nmae: 'Davr7', id: 6 },
+			],
 			innerVisible: false,
+			activeId: 0,
 			exhibits: [],
+			sorteProducts: [],
 			exp: null,
 			loading: true,
 			search: '',
@@ -100,33 +140,33 @@ export default {
 		this.getExponant();
 	},
 	computed: {
-		filterEksponant() {
-			return this.exhibits.filter(exhibit =>
-				exhibit.title.toLowerCase().includes(this.search.toLowerCase())
-			);
+		// filterEksponant() {
+		// 	return this.exhibits.filter(exhibit =>
+		// 		exhibit.title.toLowerCase().includes(this.search.toLowerCase())
+		// 	);
+		// },
+		filteredProducts() {
+			if (this.sorteProducts.length) {
+				return this.sorteProducts;
+			} else {
+				return this.exhibits;
+			}
 		},
-		// 	filteredProducts() {
-		// 		if (this.sorteProducts.length > 0) {
-		// 			return this.sorteProducts;
-		// 		} else {
-		// 			return this.$store.state.eksponant;
-		// 		}
-		// 	},
 	},
 	methods: {
-		// sortByCategories(category) {
-		// 	this.sorteProducts = [];
-		// 	this.sorteProducts = this.$store.state.eksponant.map(item => {
-		// 		if (category.name == item.name) {
-		// 			this.sorteProducts.push(item);
-		// 		}
-		// 	});
-		// },
-		filteredEksponant() {
-			return this.$store.state.eksponant.filter(exhibit =>
-				exhibit.title.toLowerCase().includes(this.search.toLowerCase())
-			);
+		activeTabs(id) {
+			this.activeId = id;
 		},
+
+		sortByCategories(id) {
+			this.sorteProducts = [];
+			this.exhibits.map(item => {
+				if (id === item.id) {
+					this.sorteProducts.push(item);
+				}
+			});
+		},
+
 		showExponant(id) {
 			this.exhibits.forEach(el => {
 				if (el.id == id) {
@@ -253,5 +293,29 @@ form input {
 }
 img {
 	vertical-align: middle;
+}
+.tab__main .tab__item {
+	padding: 0;
+	margin: 0 10px;
+	padding: 20px 15px;
+	font-weight: 600;
+	font-size: 16px;
+	margin: 0 10px;
+	color: #95abc6;
+	cursor: pointer;
+}
+.tab__main .tab__item:hover {
+	background-color: #e3e8ee;
+	border-radius: 15px;
+}
+.tab__main {
+	border: 1px solid #e5ecf5;
+	border-radius: 16px;
+	overflow: hidden;
+	width: 100%;
+}
+.activeTab {
+	color: #232c3c !important;
+	border-bottom: 2px solid #008ae4;
 }
 </style>

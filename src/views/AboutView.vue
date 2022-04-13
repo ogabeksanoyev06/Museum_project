@@ -86,8 +86,7 @@ export default { components: { Header, Footer, MuseumAllComponent, Maps } };
 .about p {
 	color: rgba(24, 24, 24, 0.5);
 	font-size: 16px;
-	font-weight: 700;
-	font-family: sans-serif;
+	font-weight: 500;
 	line-height: 1.7;
 }
 </style>

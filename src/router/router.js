@@ -35,11 +35,5 @@ export default new Router({
 			name: 'impressions',
 			component: () => import('../views/ImpressionsView.vue'),
 		},
-		{
-			path: 'product/:id',
-			name: 'products',
-			component: () => import('../views/Product.vue'),
-			props: true,
-		},
 	],
 });

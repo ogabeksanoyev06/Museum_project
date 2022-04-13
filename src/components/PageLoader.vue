@@ -45,7 +45,7 @@ export default {
 	width: 100vw;
 	height: 100vh;
 	background-color: rgba(0, 0, 0, 0.6);
-	z-index: 999;
+	z-index: 999999;
 }
 // -----------------------------------------------------
 .wave {
