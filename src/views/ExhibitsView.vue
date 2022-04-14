@@ -2,6 +2,7 @@
 	<div>
 		<Header />
 		<MuseumAllComponent />
+		<v-main-eksponant />
 		<div class="p-5 rounded my-5">
 			<p class="title_all">• Экспонаты</p>
 
@@ -30,20 +31,20 @@
 						</p>
 					</div>
 					<div class="tab__main mb-5">
-						<div class="d-flex align-items-center flex-wrap">
-							<ul
-								class="tab d-flex flex-wrap align-items-center justify-content-center"
+						<div class="d-flex align-items-center flex-column flex-md-row">
+							<label
+								v-for="tab_item in tab_items"
+								:key="tab_item.id"
+								:class="tab_item.id === activeId ? 'activeTab' : ''"
+								@click="changeTab(tab_item.id)"
 							>
-								<li
-									v-for="(tab_item, i) in tab_items"
-									:key="i"
-									:class="{ activeTab: tab_item.id === activeId }"
-									@click="activeTabs(i)"
-									class="tab__item active"
-								>
-									{{ tab_item.nmae }}
-								</li>
-							</ul>
+								<input
+									type="radio"
+									v-model="selectedCategory"
+									:value="tab_item.name"
+								/>
+								{{ tab_item.name }}</label
+							>
 						</div>
 					</div>
 				</div>
@@ -59,7 +60,7 @@
 						<div class="cards">
 							<div class="card_item card_grow w-100">
 								<div class="card_img card-img-top">
-									<img :src="exhibit.url" class="" alt="" />
+									<img :src="exhibit.image" class="" alt="" />
 								</div>
 								<div class="card_body">
 									<h5 class="card-title">{{ titleSlice(exhibit.title) }}</h5>
@@ -85,18 +86,15 @@
 						:visible.sync="outerVisible"
 					>
 						<div class="row align-items-center">
-							<div
-								class="col-md-6 d-flex justify-content-center cart_img_modal"
-							>
-								<img :src="exp.url" class="w-100" alt="" />
+							<div class="col-md-6 d-flex justify-content-center">
+								<div class="cart_img_modal">
+									<img :src="exp.image" class="w-100" alt="" />
+								</div>
 							</div>
 							<div class="col-md-6">
 								<p class="mt-2 mt-md-0">{{ exp.title }}</p>
 								<p class="">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Repellendus necessitatibus ab, commodi facilis delectus cum
-									quia minima repudiandae, quo assumenda, distinctio iste dolore
-									fugiat ad architecto quod itaque molestias natus?
+									{{ exp.description }}
 								</p>
 							</div>
 						</div>
@@ -119,15 +117,15 @@ export default {
 	data() {
 		return {
 			tab_items: [
-				{ nmae: 'Davr1', id: 0 },
-				{ nmae: 'Davr2', id: 1 },
-				{ nmae: 'Davr3', id: 2 },
-				{ nmae: 'Davr4', id: 3 },
-				{ nmae: 'Davr5', id: 4 },
-				{ nmae: 'Davr6', id: 5 },
-				{ nmae: 'Davr7', id: 6 },
+				{ name: 'All', id: 0 },
+				{ name: "men's clothing", id: 1 },
+				{ name: 'jewelery', id: 2 },
+				{ name: 'electronics', id: 3 },
+				{ name: "women's clothing", id: 4 },
 			],
+			selectedCategory: 'All',
 			innerVisible: false,
+			outerVisible: false,
 			activeId: 0,
 			exhibits: [],
 			sorteProducts: [],
@@ -140,28 +138,34 @@ export default {
 		this.getExponant();
 	},
 	computed: {
+		filteredProducts: function () {
+			var vm = this;
+			var category = vm.selectedCategory;
+
+			if (category === 'All') {
+				return vm.exhibits;
+			} else {
+				return vm.exhibits.filter(function (person) {
+					return person.category === category;
+				});
+			}
+		},
+
 		// filterEksponant() {
 		// 	return this.exhibits.filter(exhibit =>
 		// 		exhibit.title.toLowerCase().includes(this.search.toLowerCase())
 		// 	);
 		// },
-		filteredProducts() {
-			if (this.sorteProducts.length) {
-				return this.sorteProducts;
-			} else {
-				return this.exhibits;
-			}
-		},
 	},
 	methods: {
-		activeTabs(id) {
+		changeTab(id) {
 			this.activeId = id;
 		},
 
-		sortByCategories(id) {
+		sortByCategories(category) {
 			this.sorteProducts = [];
 			this.exhibits.map(item => {
-				if (id === item.id) {
+				if (item.category === category.name) {
 					this.sorteProducts.push(item);
 				}
 			});
@@ -187,7 +191,7 @@ export default {
 		},
 		getExponant() {
 			axios
-				.get('https://jsonplaceholder.typicode.com/photos?_limit=20')
+				.get('https://fakestoreapi.com/products')
 				.then(res => {
 					this.exhibits = res.data;
 					console.log(this.exhibits);
@@ -209,6 +213,19 @@ form input {
 	font-size: 1.2rem;
 	border-radius: 5px;
 	border-bottom: 3px solid #1989fa;
+}
+.tab__main input {
+	display: none;
+}
+.tab__main label {
+	padding: 15px;
+	margin: 0 15px;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 26px;
+	color: #95abc6;
+	cursor: pointer;
+	background-color: transparent;
 }
 .el-dialog {
 	width: 100% !important;
@@ -245,22 +262,26 @@ form input {
 	position: relative;
 }
 .cart_img_modal {
-	max-height: 300px;
-	overflow: hidden;
+	width: 100%;
+	max-height: 250px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	position: relative;
 }
 .cart_img_modal img {
+	display: block;
+	width: 100%;
 	height: 100%;
+	-o-object-fit: cover;
+	object-fit: contain;
 }
 .card-img-top img {
 	display: block;
 	width: 100%;
 	height: 100%;
 	-o-object-fit: cover;
-	object-fit: cover;
+	object-fit: contain;
 	transition: transform 0.2s ease-out;
 	transform-origin: 50%;
 }
@@ -316,6 +337,7 @@ img {
 }
 .activeTab {
 	color: #232c3c !important;
-	border-bottom: 2px solid #008ae4;
+	border-bottom: 1px solid #008ae4;
+	border-top: 1px solid #008ae4;
 }
 </style>

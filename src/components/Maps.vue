@@ -70,11 +70,7 @@
 						</div>
 					</div>
 					<div class="form-check col-12 my-2">
-						<input
-							class="form-check-input"
-							type="checkbox"
-							value=""
-						/>
+						<input class="form-check-input" type="checkbox" value="" />
 						<label class="form-check-label" for="flexCheckDefault">
 							{{ $t('message.mapsAmail.input') }}
 						</label>

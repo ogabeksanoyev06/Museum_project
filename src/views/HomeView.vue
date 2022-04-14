@@ -2,7 +2,6 @@
 	<div class="">
 		<Header />
 		<MuseumAllComponent />
-
 		<div class="mt-4 box">
 			<div class="container">
 				<div class="p-3 mb-4 rounded" style="background: #f5f9fd">

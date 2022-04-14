@@ -36,7 +36,7 @@ export default {
 	},
 };
 </script>
-<style>
+<style scoped>
 .allComponent {
 	background-image: url('../assets/photo_2022-04-09_11-59-07.jpg');
 	background-repeat: no-repeat;
@@ -47,12 +47,6 @@ export default {
 .el-carousel__item {
 	display: flex;
 	align-items: center;
-}
-.el-carousel__container .el-carousel__arrow {
-	top: 0;
-	transform: translateY(0);
-	background-color: #1989fa !important;
-	border-radius: 0%;
 }
 
 .allComponent .title {

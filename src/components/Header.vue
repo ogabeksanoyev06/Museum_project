@@ -118,7 +118,7 @@
 				<i class="text-secondary bi bi-globe"></i> -->
 			<div class="d-flex align-items-center">
 				<select
-					class="form-select me-1 p-0"
+					class="form-select me-1 p-1"
 					style="width: 70px"
 					v-model="language"
 					@change="changeLanguage()"

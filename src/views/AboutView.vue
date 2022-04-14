@@ -65,6 +65,7 @@
 					Илмий-методик кенгаш ташкил этилди.
 				</p>
 			</div>
+			<div class="carusel_main"></div>
 		</div>
 		<Maps />
 		<Footer />
@@ -75,7 +76,9 @@ import Maps from '../components/Maps.vue';
 import MuseumAllComponent from '../components/MuseumAllComponent.vue';
 import Footer from '../components/Footer.vue';
 import Header from '@/components/Header.vue';
-export default { components: { Header, Footer, MuseumAllComponent, Maps } };
+export default {
+	components: { Header, Footer, MuseumAllComponent, Maps },
+};
 </script>
 <style scoped>
 .about strong {
@@ -88,5 +91,21 @@ export default { components: { Header, Footer, MuseumAllComponent, Maps } };
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 1.7;
+}
+.card_top {
+	max-height: 500px;
+	width: 100%;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+.card_top img {
+	height: 100%;
+	width: 100%;
+}
+.el-carousel__arrow {
+	display: none !important;
 }
 </style>
