@@ -2,6 +2,7 @@
 	<div class="">
 		<Header />
 		<MuseumAllComponent />
+		<panaroma-view />
 		<div class="mt-4 box">
 			<div class="container">
 				<div class="p-3 mb-4 rounded" style="background: #f5f9fd">
@@ -206,6 +207,7 @@ import Header from '../components/Header.vue';
 import MuseumAllComponent from '../components/MuseumAllComponent.vue';
 import Question from '@/components/QuestionView.vue';
 import Maps from '../components/Maps.vue';
+import PanaromaView from '../components/PanaromaView.vue';
 export default {
 	name: 'HomeView',
 	data() {
@@ -218,6 +220,7 @@ export default {
 		Header,
 		Footer,
 		MuseumAllComponent,
+		PanaromaView,
 		Question,
 		Maps,
 	},

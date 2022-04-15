@@ -1,6 +1,6 @@
 <template>
 	<div class="allComponent py-5">
-		<el-carousel :interval="3000" arrow="always" height="500px">
+		<el-carousel :interval="2000" arrow="always" height="500px">
 			<el-carousel-item v-for="(item, index) in museumAll" :key="index">
 				<div class="container p-3 d-flex align-items-center">
 					<div class="row align-items-center">
@@ -14,7 +14,7 @@
 						<div class="col-md-6">
 							<div class="img_museum">
 								<img
-									class="rounded img-fluid"
+									class="rounded"
 									:src="require('../assets/MuseumPicture/' + item.url)"
 									alt="img"
 								/>
@@ -31,14 +31,35 @@ export default {
 	name: 'museumAllComponent',
 	data() {
 		return {
-			museumAll: [{ url: '1.jpg' }, { url: '2.jpg' }, { url: '3.jpg' }],
+			museumAll: [
+				{ url: '11.jpg' },
+				{ url: '12.jpg' },
+				{ url: '13.jpg' },
+				{ url: '14.jpg' },
+				{ url: '15.jpg' },
+				{ url: '16.jpg' },
+				{ url: '17.jpg' },
+				{ url: '18.jpg' },
+			],
 		};
 	},
 };
 </script>
 <style scoped>
+.img_museum {
+	width: 100%;
+	height: 300px;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+.img_museum img {
+	width: 100%;
+}
 .allComponent {
-	background-image: url('../assets/photo_2022-04-09_11-59-07.jpg');
+	background-image: url('../assets/back2.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center end;
@@ -77,9 +98,6 @@ export default {
 	}
 	.allComponent .text {
 		font-size: 16px;
-	}
-	.img_museum img {
-		width: 100%;
 	}
 	.allComponent {
 		text-align: center;
