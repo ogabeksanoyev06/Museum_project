@@ -1,61 +1,13 @@
 <template>
 	<div class="vSections">
 		<VueSlickCarousel v-bind="settings" class="container vSectionCard">
-			<div class="vCards">
+			<div class="vCards" v-for="(item, i) in sectionImg" :key="i">
 				<div class="vCards_hover">
 					<div class="content">
 						<a href="#">
 							<div class="content_overlay"></div>
 							<img
-								src="/media/service/images/2022/02/17/eft_trimble_dini_v5-500x500.jpg"
-								alt=""
-							/>
-							<div class="content-details">
-								<p>Earth drawing andekseks design</p>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="vCards">
-				<div class="vCards_hover">
-					<div class="content">
-						<a href="#">
-							<div class="content_overlay"></div>
-							<img
-								src="/media/service/images/2022/02/17/eft_trimble_dini_v5-500x500.jpg"
-								alt=""
-							/>
-							<div class="content-details">
-								<p>Earth drawing andekseks design</p>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="vCards">
-				<div class="vCards_hover">
-					<div class="content">
-						<a href="#">
-							<div class="content_overlay"></div>
-							<img
-								src="/media/service/images/2022/02/17/eft_trimble_dini_v5-500x500.jpg"
-								alt=""
-							/>
-							<div class="content-details">
-								<p>Earth drawing andekseks design</p>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="vCards">
-				<div class="vCards_hover">
-					<div class="content">
-						<a href="#">
-							<div class="content_overlay"></div>
-							<img
-								src="/media/service/images/2022/02/17/eft_trimble_dini_v5-500x500.jpg"
+								:src="require('@/assets/MuseumPicture/' + item.url)"
 								alt=""
 							/>
 							<div class="content-details">
@@ -83,8 +35,20 @@ export default {
 				infinite: true,
 				slidesToShow: 3,
 				slidesToScroll: 1,
+				autoplay: true,
+				autoplaySpeed: 4000,
 				cssEase: 'linear',
 			},
+			sectionImg: [
+				{ url: '11.jpg' },
+				{ url: '12.jpg' },
+				{ url: '13.jpg' },
+				{ url: '14.jpg' },
+				{ url: '15.jpg' },
+				{ url: '16.jpg' },
+				{ url: '17.jpg' },
+				{ url: '18.jpg' },
+			],
 		};
 	},
 	methods: {},

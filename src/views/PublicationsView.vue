@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<Header />
+		<departaments-view />
 		<MuseumAllComponent />
 
 		<div class="container my-5 p-5 rounded">
@@ -128,10 +129,11 @@
 import Footer from '../components/Footer.vue';
 import Header from '@/components/Header.vue';
 import MuseumAllComponent from '@/components/MuseumAllComponent.vue';
+import DepartamentsView from '@/components/Sections/DepartamentsView.vue';
 import axios from 'axios';
 export default {
 	name: 'publicationView',
-	components: { Header, Footer, MuseumAllComponent },
+	components: { Header, Footer, MuseumAllComponent, DepartamentsView },
 	data() {
 		return {
 			publications: [],

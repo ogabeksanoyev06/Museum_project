@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<Header />
+		<departaments-view />
 		<MuseumAllComponent />
 		<v-main-eksponant />
 		<div class="p-5 rounded my-5">
@@ -109,10 +110,11 @@
 import Footer from '../components/Footer.vue';
 import Header from '@/components/Header.vue';
 import MuseumAllComponent from '@/components/MuseumAllComponent.vue';
+import DepartamentsView from '@/components/Sections/DepartamentsView.vue';
 import axios from 'axios';
 export default {
 	name: 'ExhibitsView',
-	components: { Header, Footer, MuseumAllComponent },
+	components: { Header, Footer, MuseumAllComponent, DepartamentsView },
 
 	data() {
 		return {

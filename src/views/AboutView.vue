@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<Header />
+		<departaments-view />
 		<MuseumAllComponent />
 		<div class="container my-5">
 			<p class="title_all text-start text-md-end">• О нас</p>
@@ -76,8 +77,9 @@ import Maps from '../components/Maps.vue';
 import MuseumAllComponent from '../components/MuseumAllComponent.vue';
 import Footer from '../components/Footer.vue';
 import Header from '@/components/Header.vue';
+import DepartamentsView from '@/components/Sections/DepartamentsView.vue';
 export default {
-	components: { Header, Footer, MuseumAllComponent, Maps },
+	components: { Header, Footer, MuseumAllComponent, Maps, DepartamentsView },
 };
 </script>
 <style scoped>
