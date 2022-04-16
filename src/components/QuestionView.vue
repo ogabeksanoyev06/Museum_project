@@ -7,13 +7,10 @@
 			<el-collapse-item
 				v-for="item in object"
 				:key="item.title"
-				:title="titleSlice(item.title)"
+				:title="$t(item.title)"
 				:id="item.id"
 			>
-				<div>
-					<h6 class="text-danger">{{ item.title }} <br /></h6>
-					{{ item.text }}
-				</div>
+				<div><span class="fw-bold">Javob:</span> {{ $t(item.text) }}</div>
 			</el-collapse-item>
 		</el-collapse>
 	</div>
@@ -25,32 +22,35 @@ export default {
 		return {
 			object: [
 				{
-					title: 'Oʻzbekiston tarixi davlat muzeyi qayerda joylashgan?',
-					text: 'Oʻzbekiston, Toshkent, Sharof Rashidov shoh koʻchasi, 3',
+					title: 'Muzeyda ekskursiyalarni qanday turlari mavjud?',
+					text: 'Muzeyda turli toifadagi davr uchun eksponatlar mavjud',
+					id: 0,
+				},
+				{
+					title:
+						'Muzeyda O`zbekistonning qadimgi allomalari bo`yicha ma`lumot mavjudmi?',
+					text: 'Muzeyda 1- va 2- rezenans davrida ujod qilgan ajdodlarimiz xaqida aloxida bo`limlar mavjud',
 					id: 1,
 				},
 				{
-					title: 'Ekskursiyaga qanday yozilish kerak?',
-					text: 'Malumotlaringizni bizga yuboring yoki biz bilan bog`laning',
+					title:
+						'Bu muzeyda qadimiy shaxarlar va qadimiy yozuv madaniyatiga oid tarixiy manbalar mavjudmi?',
+					text: 'Bu Muzey O`zbekistonning qadimiy davridan bugungi kungacha bo`lgan tarixi aks ettirilgan Xorazm, Baqtriya, So`g`d, Farg`ona kabi qadimiy davlatlar va ko`plab shaxarlarning tarixi xaqida Ma`lumot olish mumkin',
 					id: 2,
 				},
 				{
-					title: 'Agar shaxsiy savolim bo`lsa, qayerga borishim kerak? ',
-					text: 'Sahifamizda joylashgan manzilga tashrif buyuring',
+					title:
+						'Muzeyda bolalar uchun maxsus ko`rgazmalar va malaka darslari tashkil etilganmi?',
+					text: '2011-yilda respublikamizda ulk bora O`zbekiston Tarixi Davlat Muzeyi qoshidagi "Mo`jizalar olamida" bolalar muzeyi tashkil etilgan.Bu yerda xar seshanba va juma kunlari bolalar uchun kulolchilik, kashtachilik va tasviriy san`at yo`nalishlarida maxorat darslari bo`lib o`tadi',
 					id: 3,
-				},
-				{
-					title: 'Ekskursiya qaysi tillarda mavjud?',
-					text: 'Hozirgi kunda O`zbek va Rus tillarida',
-					id: 4,
 				},
 			],
 		};
 	},
 	methods: {
 		titleSlice(text) {
-			if (text.length > 29) {
-				return text.slice(0, 30) + '... ?';
+			if (text.length > 34) {
+				return text.slice(0, 35) + '... ';
 			}
 		},
 	},
@@ -58,6 +58,6 @@ export default {
 </script>
 <style>
 .el-collapse-item__header {
-	font-size: 16px !important;
+	line-height: 1;
 }
 </style>
