@@ -67,11 +67,10 @@ export default {
 }
 .vCards {
 	position: relative;
-	border: 1px solid #fff;
-	border-radius: 0.25rem;
 	transition: all 1s ease-in-out;
 	height: 180px;
 	position: relative;
+	padding: 0 3px;
 }
 
 .vSectionCard .vCards_hover {
