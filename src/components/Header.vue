@@ -12,7 +12,7 @@
 		<div
 			class="d-flex container align-items-center justify-content-center justify-content-md-between flex-wrap"
 		>
-			<ul class="d-flex align-items-center header_t my-1 me-3">
+			<ul class="d-flex align-items-center header_t me-3">
 				<li>
 					<a href="#"><img src="../assets/Vector.png" alt="telegram" /></a>
 				</li>
@@ -23,6 +23,14 @@
 					<a href="#"><img src="../assets/Vector (2).png" alt="facebook" /></a>
 				</li>
 			</ul>
+			<div
+				style="cursor: pointer; flex: 1"
+				class="d-none d-md-flex align-items-center justify-content-center"
+				@click="goTo('home')"
+			>
+				<img src="../assets/logo.png" alt="logo" class="me-2" />
+				<span>MUSEUM</span>
+			</div>
 			<el-tooltip
 				class="item"
 				effect="dark"
@@ -36,14 +44,7 @@
 			</el-tooltip>
 		</div>
 		<!-- logoo header -->
-		<div
-			style="cursor: pointer; flex: 1"
-			class="d-none d-md-flex align-items-center justify-content-center"
-			@click="goTo('home')"
-		>
-			<img src="../assets/logo.png" alt="logo" class="me-2" />
-			<span>MUSEUM</span>
-		</div>
+
 		<hr class="hr my-0 mb-2" />
 		<div
 			class="header_items container d-flex align-items-center justify-content-between"

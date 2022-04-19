@@ -26,6 +26,11 @@ export default new Router({
 			component: () => import('../views/SectionsView.vue'),
 		},
 		{
+			path: '/sections/:id',
+			name: 'sectionId',
+			component: () => import('@/components/Sections/vSevtion.vue'),
+		},
+		{
 			path: '/publications',
 			name: 'publications',
 			component: () => import('../views/PublicationsView.vue'),

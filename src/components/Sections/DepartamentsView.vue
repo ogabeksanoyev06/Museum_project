@@ -4,7 +4,7 @@
 			<div class="vCards" v-for="(item, i) in sectionImg" :key="i">
 				<div class="vCards_hover">
 					<div class="content">
-						<a href="#">
+						<router-link :to="`/sections/${item.id + 1}`">
 							<div class="content_overlay"></div>
 							<img
 								:src="require('@/assets/MuseumPicture/' + item.url)"
@@ -13,7 +13,7 @@
 							<div class="content-details">
 								<p>Earth drawing andekseks design</p>
 							</div>
-						</a>
+						</router-link>
 					</div>
 				</div>
 			</div>
@@ -33,21 +33,18 @@ export default {
 				arrows: true,
 				dots: true,
 				infinite: true,
-				slidesToShow: 3,
+				slidesToShow: 4,
 				slidesToScroll: 1,
 				autoplay: true,
 				autoplaySpeed: 4000,
 				cssEase: 'linear',
 			},
 			sectionImg: [
-				{ url: '11.jpg' },
-				{ url: '12.jpg' },
-				{ url: '13.jpg' },
-				{ url: '14.jpg' },
-				{ url: '15.jpg' },
-				{ url: '16.jpg' },
-				{ url: '17.jpg' },
-				{ url: '18.jpg' },
+				{ url: '11.jpg', id: 0 },
+				{ url: '12.jpg', id: 1 },
+				{ url: '13.jpg', id: 2 },
+				{ url: '14.jpg', id: 3 },
+				{ url: '15.jpg', id: 4 },
 			],
 		};
 	},
@@ -59,7 +56,7 @@ export default {
 <style scoped>
 .vSections {
 	background-color: #243c52;
-	padding: 30px 0;
+	padding: 20px 0;
 	overflow: hidden;
 }
 .vSectionCard {
@@ -70,11 +67,10 @@ export default {
 }
 .vCards {
 	position: relative;
-	border: 1px solid rgba(0, 0, 0, 0.125);
+	border: 1px solid #fff;
 	border-radius: 0.25rem;
 	transition: all 1s ease-in-out;
-	height: 200px;
-	max-width: 350px;
+	height: 180px;
 	position: relative;
 }
 
@@ -113,8 +109,6 @@ export default {
 .content-details {
 	position: absolute;
 	text-align: center;
-	padding-left: 1em;
-	padding-right: 1em;
 	width: 100%;
 	top: 0%;
 	left: 50%;
@@ -130,5 +124,7 @@ export default {
 .content:hover .content-details {
 	top: 50%;
 	opacity: 1;
+}
+@media (max-width: 768) {
 }
 </style>

@@ -6,7 +6,7 @@
 		<p style="font-size: 15px; text-align: center">
 			{{ $t('message.mapsAmail.text') }}
 		</p>
-		<div class="row">
+		<div class="row align-items-center">
 			<div class="col-md-6">
 				<form v-on:submit.prevent="submit">
 					<div class="col-12 form-group">

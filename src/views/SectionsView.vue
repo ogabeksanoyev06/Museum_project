@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<Header />
+		<departaments-view />
 		<MuseumAllComponent />
 		<div class="my-5 pt-5" style="background-color: #435b71">
 			<el-carousel :interval="0" arrow="always" height="600px">
@@ -52,8 +53,17 @@ import Maps from '../components/Maps.vue';
 import Footer from '../components/Footer.vue';
 import Header from '@/components/Header.vue';
 import MuseumAllComponent from '@/components/MuseumAllComponent.vue';
+import DepartamentsView from '@/components/Sections/DepartamentsView.vue';
 export default {
 	name: 'sectionsView',
+	components: {
+		Header,
+		Footer,
+		MuseumAllComponent,
+		Maps,
+		QuestionView,
+		DepartamentsView,
+	},
 	data() {
 		return {
 			slides: [
@@ -70,14 +80,6 @@ export default {
 		slidesLen() {
 			return this.slides.length;
 		},
-	},
-
-	components: {
-		Header,
-		Footer,
-		MuseumAllComponent,
-		Maps,
-		QuestionView,
 	},
 };
 </script>
