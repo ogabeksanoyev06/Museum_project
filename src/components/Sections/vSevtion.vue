@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<Header />
+		<h1 class="text-center">Bo'lim:{{ this.sectionId }}</h1>
 		<Footer />
-		{{ this.sectionId }}
 	</div>
 </template>
 <script>

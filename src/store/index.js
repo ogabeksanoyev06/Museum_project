@@ -5,6 +5,13 @@ Vue.use(Vuex);
 export default new Vuex.Store({
 	state: {
 		products: [],
+		sectionsData: [
+			{ url: '11.jpg', text: 'Bolim1', id: 0 },
+			{ url: '12.jpg', text: 'Bolim2', id: 1 },
+			{ url: '13.jpg', text: 'Bolim3', id: 2 },
+			{ url: '14.jpg', text: 'Bolim4', id: 3 },
+			{ url: '15.jpg', text: 'Bolim5', id: 4 },
+		],
 		items: [
 			{ title: 'О нас', name: 'about' },
 			{ title: 'Экспонаты', name: 'exhibits' },
@@ -12,7 +19,7 @@ export default new Vuex.Store({
 			{ title: 'Издания', name: 'publications' },
 			{ title: 'Выставки', name: 'impressions' },
 		],
-	
+
 		eksponant: [
 			{
 				image: '1.jpg',

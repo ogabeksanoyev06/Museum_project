@@ -1,7 +1,12 @@
 <template>
-	<div class="vSections">
+	<div class="vSections mb-3 py-4">
 		<VueSlickCarousel v-bind="settings" class="container vSectionCard">
-			<div class="vCards" v-for="(item, i) in sectionImg" :key="i">
+			<div
+				class="vCards"
+				v-for="(item, i) in this.$store.state.sectionsData"
+				:key="i"
+				@click="showSection(item.id)"
+			>
 				<div class="vCards_hover">
 					<div class="content">
 						<router-link :to="`/sections/${item.id + 1}`">
@@ -39,13 +44,6 @@ export default {
 				autoplaySpeed: 4000,
 				cssEase: 'linear',
 			},
-			sectionImg: [
-				{ url: '11.jpg', id: 0 },
-				{ url: '12.jpg', id: 1 },
-				{ url: '13.jpg', id: 2 },
-				{ url: '14.jpg', id: 3 },
-				{ url: '15.jpg', id: 4 },
-			],
 		};
 	},
 	methods: {},
@@ -55,8 +53,7 @@ export default {
 </script>
 <style scoped>
 .vSections {
-	background-color: #243c52;
-	padding: 20px 0;
+	background: rgba(34, 35, 36, 1);
 	overflow: hidden;
 }
 .vSectionCard {
