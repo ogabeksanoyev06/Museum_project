@@ -44,7 +44,7 @@
 									v-model="selectedCategory"
 									:value="tab_item.name"
 								/>
-								{{ tab_item.name }}</label
+								{{ tab_item.name.toUpperCase() }}</label
 							>
 						</div>
 					</div>
@@ -140,7 +140,7 @@ export default {
 		this.getExponant();
 	},
 	computed: {
-		filteredProducts: function () {
+		filteredProducts() {
 			var vm = this;
 			var category = vm.selectedCategory;
 

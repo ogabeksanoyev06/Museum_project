@@ -53,7 +53,12 @@ export default {
 </script>
 <style scoped>
 .vSections {
-	background: rgba(34, 35, 36, 1);
+	background: url('https://ritm.uz/static/media/bg_2.5f548fd6.svg') center
+		center / cover;
+	background-image: url('https://ritm.uz/static/media/bg_2.5f548fd6.svg');
+	background-position-x: center;
+	background-position-y: center;
+	background-size: cover;
 	overflow: hidden;
 }
 .vSectionCard {
