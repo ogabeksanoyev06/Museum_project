@@ -3,7 +3,6 @@
 		<Header />
 		<departaments-view />
 		<MuseumAllComponent />
-		<v-main-eksponant />
 		<div class="p-5 rounded my-5">
 			<p class="title_all">• Экспонаты</p>
 
