@@ -1,77 +1,84 @@
 <template>
-	<div class="header mb-3">
-		<marquee
-			class=""
-			data-v-398c99f6=""
-			behavior=""
-			direction="left"
-			style="color: rgb(149, 171, 198)"
-			>Sayt test rejimida ishlamoqda... Kamchiliklar uchun uzr so'raymiz
-		</marquee>
-		<!-- logoo header -->
-		<div
-			class="d-flex container align-items-center justify-content-center justify-content-md-between flex-wrap"
-		>
-			<ul class="d-flex align-items-center header_t me-3">
-				<li>
-					<a href="#"><img src="../assets/Vector.png" alt="telegram" /></a>
-				</li>
-				<li class="mx-2">
-					<a href="#"><img src="../assets/Vector (1).png" alt="instagram" /></a>
-				</li>
-				<li>
-					<a href="#"><img src="../assets/Vector (2).png" alt="facebook" /></a>
-				</li>
-			</ul>
+	<div style="min-height: 120px">
+		<div class="header shadow pb-2">
+			<marquee
+				class=""
+				data-v-398c99f6=""
+				behavior=""
+				direction="left"
+				style="color: rgb(149, 171, 198)"
+				>Sayt test rejimida ishlamoqda... Kamchiliklar uchun uzr so'raymiz
+			</marquee>
+			<!-- logoo header -->
 			<div
-				style="cursor: pointer; flex: 1"
-				class="d-none d-md-flex align-items-center justify-content-center"
-				@click="goTo('home')"
+				class="d-flex container align-items-center justify-content-center justify-content-md-between flex-wrap"
 			>
-				<img src="../assets/logo.png" alt="logo" class="me-2" />
-				<span>MUSEUM</span>
-			</div>
-			<el-tooltip
-				class="item"
-				effect="dark"
-				content="Phone: +(998) 71 239-10-83"
-				placement="bottom"
-			>
-				<a href="tel:+(998) 71 239-10-83">
-					<span class="fw-bold text-black">Тел:</span>
-					<span class="text-black"> +(998) 71 239-10-83</span>
-				</a>
-			</el-tooltip>
-		</div>
-		<!-- logoo header -->
-
-		<hr class="hr my-0 mb-2" />
-		<div
-			class="header_items container d-flex align-items-center justify-content-between"
-		>
-			<ul :class="{ activeMenu: isActive }" class="header_item d-md-flex">
-				<li
-					class="me-3"
-					v-for="(item, index) in items"
-					:class="$route.name === item.name ? 'activeClass' : ''"
-					:key="index"
+				<ul class="d-flex align-items-center header_t me-3">
+					<li>
+						<a href="https://t.me/ziyookline_english"
+							><img src="../assets/Vector.png" alt="telegram"
+						/></a>
+					</li>
+					<li class="mx-2">
+						<a href="#"
+							><img src="../assets/Vector (1).png" alt="instagram"
+						/></a>
+					</li>
+					<li>
+						<a href="#"
+							><img src="../assets/Vector (2).png" alt="facebook"
+						/></a>
+					</li>
+				</ul>
+				<div
+					style="cursor: pointer; flex: 1"
+					class="d-none d-md-flex align-items-center justify-content-center"
+					@click="goTo('home')"
 				>
-					<router-link
-						@click="$route.name === item.name"
-						:to="{ name: item.name }"
-						>{{ $t(item.title) }}</router-link
-					>
-				</li>
-			</ul>
-			<div
-				style="cursor: pointer;flex-1"
-				class="d-flex d-md-none align-items-center justifu-content-md-start justify-content-center"
-				@click="goTo('home')"
-			>
-				<img src="../assets/logo.png" alt="logo" class="me-2" />
-				<span>MUSEUM</span>
+					<img src="../assets/logo.png" alt="logo" class="me-2" />
+					<span>MUSEUM</span>
+				</div>
+				<el-tooltip
+					class="item"
+					effect="dark"
+					content="Phone: +(998) 71 239-10-83"
+					placement="bottom"
+				>
+					<a href="tel:+(998) 71 239-10-83">
+						<span class="fw-bold text-black">Тел:</span>
+						<span class="text-black"> +(998) 71 239-10-83</span>
+					</a>
+				</el-tooltip>
 			</div>
-			<!-- <div class="d-flex align-items-center"> 
+			<!-- logoo header -->
+
+			<hr class="hr my-0 mb-2" />
+			<div
+				class="header_items container d-flex align-items-center justify-content-between"
+			>
+				<ul :class="{ activeMenu: isActive }" class="header_item d-md-flex">
+					<li
+						class="me-3"
+						v-for="(item, index) in items"
+						:class="$route.name === item.name ? 'activeClass' : ''"
+						:key="index"
+					>
+						<router-link
+							@click="$route.name === item.name"
+							:to="{ name: item.name }"
+							>{{ $t(item.title) }}</router-link
+						>
+					</li>
+				</ul>
+				<div
+					style="cursor: pointer;flex-1"
+					class="d-flex d-md-none align-items-center justifu-content-md-start justify-content-center"
+					@click="goTo('home')"
+				>
+					<img src="../assets/logo.png" alt="logo" class="me-2" />
+					<span>MUSEUM</span>
+				</div>
+				<!-- <div class="d-flex align-items-center"> 
 				<div class="me-3">
 					<router-link :to="{}"
 						><el-badge
@@ -117,24 +124,25 @@
 					></router-link>
 				</div> 
 				<i class="text-secondary bi bi-globe"></i> -->
-			<div class="d-flex align-items-center">
-				<select
-					class="form-select me-1 p-1"
-					style="width: 70px"
-					v-model="language"
-					@change="changeLanguage()"
-				>
-					<option value="uz">Uz</option>
-					<option value="en">En</option>
-				</select>
-				<div
-					class="logo_menu d-md-none d-flex mr-2"
-					:class="{ toggleMenu: btnActive }"
-					@click="(isActive = !isActive), (btnActive = !btnActive)"
-				>
-					<span></span>
-					<span></span>
-					<span></span>
+				<div class="d-flex align-items-center">
+					<select
+						class="form-select me-1 p-1"
+						style="width: 70px"
+						v-model="language"
+						@change="changeLanguage()"
+					>
+						<option value="uz">Uz</option>
+						<option value="en">En</option>
+					</select>
+					<div
+						class="logo_menu d-md-none d-flex mr-2"
+						:class="{ toggleMenu: btnActive }"
+						@click="(isActive = !isActive), (btnActive = !btnActive)"
+					>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -178,6 +186,14 @@ export default {
 </script>
 
 <style>
+.header {
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	min-height: 120px;
+	z-index: 9999;
+	background-color: #fff;
+}
 .hr {
 	width: 100%;
 	opacity: 0.1;
@@ -342,7 +358,6 @@ export default {
 		align-items: center;
 		justify-content: center;
 		background: rgba(34, 35, 36, 1);
-		box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.08);
 		width: 310px;
 		transform: translateX(0);
 		height: 100vh !important;

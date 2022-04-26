@@ -5,7 +5,6 @@
 				class="vCards"
 				v-for="(item, i) in this.$store.state.sectionsData"
 				:key="i"
-				@click="showSection(item.id)"
 			>
 				<div class="vCards_hover">
 					<div class="content">
